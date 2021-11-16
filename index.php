@@ -89,21 +89,10 @@
       text-align: right;
     }
 
-    .login-help {
-      margin: 20px 0;
-      font-size: 11px;
-      color: white;
-      text-align: center;
-      text-shadow: 0 1px #2a85a1;
-    }
-
-    .login-help a {
-      color: #cce7fa;
-      text-decoration: none;
-    }
-
-    .login-help a:hover {
-      text-decoration: underline;
+    .err {
+      color: rgb(181, 117, 117);
+      background-color: rgb(255, 220, 224);
+      padding: 10px;
     }
 
     :-moz-placeholder {
@@ -190,9 +179,9 @@
     <h1>Login Panel</h1>
 
     <form method="post" action="login.php">
-
-      <p><input type="text" name="uname" value="" placeholder="Username or Email"></p>
-      <p><input type="password" name="pword" value="" placeholder="Password"></p>
+      <?php echo (isset($_GET['errors'])) ? '<p class="err">Your username and/or password do not match</p>' : ''; ?>
+      <p><input type="text" name="uname" value="" placeholder="Username or Email" autofocus autocomplete="off" required></p>
+      <p><input type="password" name="pword" value="" placeholder="Password" autocomplete="off" required></p>
       <p class="remember_me">
         <label>
           <input type="checkbox" name="remember_me" id="remember_me">

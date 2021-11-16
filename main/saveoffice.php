@@ -1,13 +1,24 @@
 <?php
-include('connect.php');	
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['saveOffice'])) {
 
-$officename = $_POST['officename'];
+    include('connect.php');
 
-// query
-$sql = "INSERT INTO offices (name) VALUES (:sas)";
-$q = $db->prepare($sql);
-$q->execute(array(':sas'=>$officename));
-header("location: offices.php");
+    $officename = $_POST['officename'];
 
+    $q = $db->prepare("SELECT name FROM offices WHERE name= :officeName");
 
-?>
+    $q->bindParam(':officeName', $officename);
+    $q->execute();
+    $rows = $q->fetch(PDO::FETCH_NUM);
+
+    if (!$rows > 0) {
+
+        $sql = $db->prepare("INSERT INTO offices (name) VALUES (:saveOffice)");
+        $sql->execute(array(':saveOffice' => $officename));
+        header("location: offices.php");
+    } else {
+        header("location: offices.php?err=duplicate&n=" . $officename);
+    }
+} else {
+    header("location: offices.php");
+}

@@ -1,3 +1,13 @@
+<?php
+
+if (isset($_GET['err'])) {
+	if ($_GET['err'] == 'duplicate') {
+		echo '<script>alert("Office name \" ' . $_GET['n']  . ' \"  is already exist!")</script>';
+	}
+}
+
+?>
+
 <style>
 	body {
 		background: #0ca3d2;
