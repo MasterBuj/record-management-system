@@ -51,7 +51,14 @@ if (isset($_GET['id'])) {
 			</select><br /><br>
 
 			Status<br>
-			<input type="text" name="status" value="<?php echo $rows['status']; ?>" required /><br><br>
+			<select name="status" class="ed" required>
+				<?php echo '<option value="' . $rows['status'] . '">' . $rows['status'] . '</option>'; ?>
+				<option value="Declined">Declined</option>
+				<option value="Delivered">Delivered</option>
+				<option value="Needs to View">Needs to View</option>
+				<option value="Completed">Completed</option>
+			</select>
+			<br><br>
 
 			Forwarded To<br>
 			<input type="text" name="ft" value="<?php echo $rows['ft']; ?>" required /><br><br>

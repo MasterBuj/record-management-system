@@ -132,14 +132,15 @@
 <table cellspacing="0" cellpadding="2" id="resultTable">
 	<thead>
 		<tr>
+			<th width="7%"> Track No. </th>
 			<th width="5%"> Date In</th>
 			<th width="7%"> Date Out</th>
 			<th width="10%"> Received By </th>
+			<th width="10%"> Forwarded To </th>
+			<th width="10%"> Office </th>
 			<th width="10%"> Document Type </th>
 			<th width="23%"> Description </th>
-			<th width="10%"> Office </th>
 			<th width="5%"> Status </th>
-			<th width="10%"> Forwarded To </th>
 			<th width="10%"> Action </th>
 		</tr>
 	</thead>
@@ -155,14 +156,16 @@
 		for ($i = 0; $row = $result->fetch(); $i++) {
 		?>
 			<tr class="record">
+				<td><?php echo sprintf('%06d', $row['id']); ?></td>
 				<td><?php echo $row['date']; ?></td>
 				<td><?php echo $row['dateout']; ?></td>
 				<td><?php echo $row['receive_by']; ?></td>
+				<td><?php echo $row['ft']; ?></td>
+				<td><?php echo $row['office']; ?></td>
 				<td><?php echo $row['doc_type']; ?></td>
 				<td><?php echo $row['description']; ?></td>
-				<td><?php echo $row['office']; ?></td>
 				<td><?php echo $row['status']; ?></td>
-				<td><?php echo $row['ft']; ?></td>
+
 
 				<td>
 					<!-- edit button  -->
