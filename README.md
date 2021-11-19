@@ -8,8 +8,8 @@ School Project
  - main
 	 - connect.php
 	 - index.php
-		 - add.php
-			 - reg.php
+		 - addtransac.php
+			 - savetransac.php
 		 - editform.php
 			 - edit.php
 		 - delete.php

@@ -115,7 +115,7 @@
 	Home
 	| <a href="offices.php">Offices</a>
 	| <a href="doctype.php">Document Type</a>
-	| <a href="../index.php">Logout</a>
+	| <a href="destroy.php">Logout</a>
 </div>
 
 
@@ -164,12 +164,12 @@
 				<td><?php echo $row['office']; ?></td>
 				<td><?php echo $row['doc_type']; ?></td>
 				<td><?php echo $row['description']; ?></td>
-				<td><?php echo $row['status']; ?></td>
+				<td class="<?php echo $row['status']; ?>"><?php echo $row['status']; ?></td>
 
 
 				<td>
 					<!-- edit button  -->
-					<a rel="facebox" href="editform.php?id=<?php echo $row['id']; ?>"> Edit </a> |
+					<a rel="facebox" class="editbutton" href="editform.php?id=<?php echo $row['id']; ?>"> Edit </a> |
 
 					<!-- delete button -->
 					<a href="#" id="<?php echo $row['id']; ?>" class="delbutton" title="Click To Delete">Delete</a>
