@@ -63,7 +63,7 @@ if (isset($_GET['id'])) {
 			Forwarded To<br>
 			<input type="text" name="ft" value="<?php echo $rows['ft']; ?>" required /><br><br>
 
-			<input type="submit" name="submitEdit" value="Save" />
+			<input type="submit" name="submitEdit" value="Save Changes" />
 		</form>
 <?php
 	}
